@@ -2,10 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ClientMobileHospital.MedicamentosPage"
-             Title="MedicamentosPage">
+             Title="HS">
 
-    
-    
     <StackLayout Padding="20">
         
         <Label Text="Ingresar Medicamento" FontSize="24" HorizontalOptions="Center" />
@@ -20,10 +18,13 @@
             
             <Button x:Name="btnGuardar" Text="Guardar" Clicked="btnGuardar_Clicked" />
             <Button x:Name="btnConsultar" Text="Consultar" Clicked="btnConsultar_Clicked" />
-            <Button x:Name="btnActualizar" Text="Actualizar" Clicked="btnActualizar_Clicked" />
-             <Button x:Name="btnEliminar" Text="Eliminar" Clicked="btnEliminar_Clicked" />
+            <Button x:Name="btnActualizar" Text="Actualizar" />
+            <Button x:Name="btnEliminar" Text="Eliminar" Clicked="btnEliminar_Clicked" />
+            <Button Grid.Column="1" x:Name="btnTodos" Text="CONSULTARTODOS" Clicked="btnTodos_Clicked"/>
           
         </StackLayout>
+
+        <Label x:Name="lblMensaje" Text="" />
 
         <ListView x:Name="medicamentosListView" Margin="0,20">
             <ListView.ItemTemplate>

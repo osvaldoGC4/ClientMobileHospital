@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClientMobileHospital.ListMedicamentos"
+             Title="Lista Medicamentos">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label Text="MEDICAMENTOS EN LA BASE DE DATOS" FontSize="Medium" FontAttributes="Bold"
+                VerticalOptions="Start" 
+                HorizontalOptions="CenterAndExpand" />
+            <Grid ColumnDefinitions="50, 150, 120, 120,120,120, *">
+                <Label Grid.Column="0" Text="Id" FontSize="Small" FontAttributes="Bold"></Label>
+                <Label Grid.Column="1" Text="Nombre medicamento" FontSize="Small" FontAttributes="Bold"></Label>
+                <Label Grid.Column="2" Text="Descripcion" FontSize="Small" FontAttributes="Bold"></Label>
+                <Label Grid.Column="3" Text="Tipo" FontSize="Small" FontAttributes="Bold"></Label>
+                <Label Grid.Column="4" Text="Cantidad" FontSize="Small" FontAttributes="Bold"></Label>
+                <Label Grid.Column="5" Text="Activo" FontSize="Small" FontAttributes="Bold"></Label>
+            </Grid>
+            <CollectionView x:Name="lstMedicamentos" SelectionMode="Single" Margin="0">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"></LinearItemsLayout>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="0" RowSpacing="0" HeightRequest="40" ColumnDefinitions="50, 150, 120, 120,120,120, *">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Grid.Column="0" Text="{Binding Id}" FontSize="14" HeightRequest="20"/>
+                            <Label Grid.Column="1" Text="{Binding Nombre}" FontSize="14" HeightRequest="20"/>
+                            <Label Grid.Column="2" Text="{Binding Descripcion}" FontSize="14" HeightRequest="20"/>
+                            <Label Grid.Column="3" Text="{Binding Tipo}" FontSize="14" HeightRequest="20"/>
+                            <Label Grid.Column="4" Text="{Binding Cantidad}" FontSize="14" HeightRequest="20"/>
+                            <Label Grid.Column="5" Text="{Binding Activo}" FontSize="14" HeightRequest="20"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -9,62 +9,46 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ClientMobileHospital.Broker
 {
-    public class bMedicamento
+    public class bTratamiento
     {
         //Utilizamos la conexion a la base de datos
         readonly SQLiteAsyncConnection _connection;
         public string Error { get; set; }
-        public bMedicamento(string rutaDB)
+        public bTratamiento(string rutaDB)
         {
             //Asignamos la conexion
             _connection = new SQLiteAsyncConnection(rutaDB);
         }
 
-        public Task<List<Medicamento>> GetAll()
+        public Task<List<Tratamiento>> GetAll()
         {
-            return _connection.Table<Medicamento>().ToListAsync();
+            return _connection.Table<Tratamiento>().ToListAsync();
         }
 
-        public Task<Medicamento> Consultar(int id)
+        public Task<Tratamiento> Consultar(int id)
         {
-            return _connection.Table<Medicamento>()
+            return _connection.Table<Tratamiento>()
                     .Where(p => p.Id == id)
                     .FirstOrDefaultAsync();
         }
 
-        public async Task<int> GrabarMedicamento(Medicamento medicamento)
+        public async Task<int> GrabarTratamiento(Tratamiento tratamiento)
         {
             try
             {
-                Medicamento _medicamento = await (_connection.Table<Medicamento>()
-                        .Where(p => p.Id == medicamento.Id)
+                Tratamiento _tratamiento = await (_connection.Table<Tratamiento>()
+                        .Where(p => p.Id == tratamiento.Id)
                         .FirstOrDefaultAsync());
-                if (_medicamento == null)
+                if (_tratamiento == null)
                 {
                     //Se va a grabar
-                    return _connection.InsertAsync(medicamento).Result;
+                    return _connection.InsertAsync(tratamiento).Result;
                 }
                 else
                 {
                     //Se va a actualizar
-                    return _connection.UpdateAsync(medicamento).Result;
+                    return _connection.UpdateAsync(tratamiento).Result;
                 }
-           }
-            catch (Exception ex)
-            {
-               Error = ex.Message;
-               return -1;
-            }
-        }
-
-        public async Task<int> Eliminar(int id)
-        {
-            try
-            {
-                Medicamento _medicamento = await (_connection.Table<Medicamento>()
-                        .Where(p => p.Id == id)
-                        .FirstOrDefaultAsync());
-                return _connection.DeleteAsync(_medicamento).Result;
             }
             catch (Exception ex)
             {
@@ -72,6 +56,22 @@ namespace ClientMobileHospital.Broker
                 return -1;
             }
         }
+
+        public async Task<int> Eliminar(int id)
+        {
+            try
+            {
+                Tratamiento _tratamiento = await (_connection.Table<Tratamiento>()
+                        .Where(p => p.Id == id)
+                        .FirstOrDefaultAsync());
+                return _connection.DeleteAsync(_tratamiento).Result;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.Message;
+                return -1;
+            }
+        }
+
     }
-    
 }

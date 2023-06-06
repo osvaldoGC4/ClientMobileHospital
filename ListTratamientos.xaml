@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClientMobileHospital.ListTratamientos"
+             Title="Lista Tratamientos">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label Text="TRATAMIENTOS" FontSize="Medium" FontAttributes="Bold"
+                VerticalOptions="Start" 
+                HorizontalOptions="CenterAndExpand" />
+            <Grid ColumnDefinitions="*, *, *, *, *">
+                <Label Grid.Column="0" Text="Id" FontSize="Small" FontAttributes="Bold"></Label>
+                <Label Grid.Column="1" Text="Nombre Tratamiento" FontSize="Small" FontAttributes="Bold"></Label>
+                <Label Grid.Column="2" Text="Descripcion" FontSize="Small" FontAttributes="Bold"></Label>
+                <Label Grid.Column="3" Text="Costo" FontSize="Small" FontAttributes="Bold"></Label>
+
+            </Grid>
+            <CollectionView x:Name="lstTratamientos" SelectionMode="Single" Margin="0">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"></LinearItemsLayout>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="0" RowSpacing="0" HeightRequest="40" ColumnDefinitions="*, *, *, *, *">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Grid.Column="0" Text="{Binding Id}" FontSize="14" HeightRequest="20"/>
+                            <Label Grid.Column="1" Text="{Binding Nombre}" FontSize="14" HeightRequest="20"/>
+                            <Label Grid.Column="2" Text="{Binding Descripcion}" FontSize="14" HeightRequest="20"/>
+                            <Label Grid.Column="3" Text="{Binding Costo}" FontSize="14" HeightRequest="20"/>
+
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

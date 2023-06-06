@@ -16,7 +16,7 @@ public partial class MedicamentosPage : ContentPage
 		InitializeComponent();
 	}
 
-	private void btnGuardar_Clicked(object sender, EventArgs e)
+	private async void btnGuardar_Clicked(object sender, EventArgs e)
 	{
         //Toma los datos para grabar el usuario
         int IdMedicamento;
@@ -37,7 +37,7 @@ public partial class MedicamentosPage : ContentPage
         
         
 
-        int Rpta = _bMedicamento.GrabarMedicamento(medicamento).Result;
+        int Rpta = await _bMedicamento.GrabarMedicamento(medicamento);
         if (Rpta >= 0)
         {
             lblMensaje.Text = "Se grabó en la base de datos el Medicamento: " + Nombre;
@@ -71,12 +71,8 @@ public partial class MedicamentosPage : ContentPage
             }
         }
     }
-    /*
-    private async void btnActualizar_Clicked(object sender, EventArgs e)
-    {
-
-    }
-    */
+    
+    
     private async void btnEliminar_Clicked(object sender, EventArgs e)
     {
         if (string.IsNullOrEmpty(txtId.Text))
@@ -87,10 +83,16 @@ public partial class MedicamentosPage : ContentPage
         {
             int IdMedicamento = Convert.ToInt32(txtId.Text);
             await _bMedicamento.Eliminar(IdMedicamento);
+            NavegarLista();
         }
     }
     
     private void btnTodos_Clicked(object sender, EventArgs e)
+    {
+        NavegarLista();
+    }
+
+    private void NavegarLista()
     {
         Navigation.PushAsync(new ListMedicamentos());
     }

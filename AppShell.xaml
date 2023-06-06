@@ -14,5 +14,9 @@
         Title="Formulario Medicamentos" 
         ContentTemplate="{DataTemplate local:MedicamentosPage}"
         Route="Medicamentos" />
+    <ShellContent
+        Title="Formulario Tratamientos" 
+        ContentTemplate="{DataTemplate local:TratamientoPage}"
+        Route="Tratamientos" />
 
 </Shell>

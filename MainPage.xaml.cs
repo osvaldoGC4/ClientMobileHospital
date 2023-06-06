@@ -13,17 +13,16 @@ public partial class MainPage : ContentPage
     {
         Navigation.PushAsync(new MedicamentosPage());
     }
-
-    /*
-    private void OnDoctoresClicked(object sender, EventArgs e)
-    {
-        Navigation.PushAsync(new DoctoresPage());
-    }
-
-    private void OnPacienteClicked(object sender, EventArgs e)
+    private void OnPacientesClicked(object sender, EventArgs e)
     {
         Navigation.PushAsync(new PacientePage());
     }
-    */
+
+    private void OnTratamientosClicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new TratamientoPage());
+    }
+
+    
 }
 

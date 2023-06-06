@@ -23,8 +23,8 @@
 
         <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
             <Button Text="Medicamentos" BackgroundColor="LightBlue" TextColor="Black" TextTransform="Uppercase"  Clicked="OnMedicamentosClicked" />
-            <Button Text="Doctores" BackgroundColor="LightBlue"  TextColor="Black" TextTransform="Uppercase" />
-            <Button Text="Pacientes" BackgroundColor="LightBlue" TextColor="Black" TextTransform="Uppercase" />
+            <Button Text="Tratamientos" BackgroundColor="LightBlue"  TextColor="Black" TextTransform="Uppercase" Clicked="OnTratamientosClicked" />
+            <Button Text="Pacientes" BackgroundColor="LightBlue" TextColor="Black" TextTransform="Uppercase" Clicked="OnPacientesClicked"/>
         </StackLayout>
         
         

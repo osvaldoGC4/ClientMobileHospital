@@ -1,38 +1,29 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ClientMobileHospital.MedicamentosPage"
-             Title="HS">
-
+             x:Class="ClientMobileHospital.TratamientoPage"
+             Title="TratamientoPage">
     <StackLayout Padding="20">
-        
+
         <Label Text="Ingresar Medicamento" FontSize="24" HorizontalOptions="Center" />
 
         <Entry x:Name="txtId" Placeholder="ID" Margin="0,20" />
-        <Entry x:Name="txtNomMedicamento" Placeholder="Nombre" Margin="0,20" />
+        <Entry x:Name="txtNomTratamiento" Placeholder="Nombre Tratamiento" Margin="0,20" />
         <Entry x:Name="txtDescripcion" Placeholder="Descripcion" Margin="0,20" />
-        <Entry x:Name="txtTipo" Placeholder="Tipo" Margin="0,20" />
-        <Entry x:Name="txtCantidad" Placeholder="Cantidad" Margin="0,20" Keyboard="Numeric" />
+        <Entry x:Name="txtCosto" Placeholder="Costo" Margin="0,20" Keyboard="Numeric" />
 
         <StackLayout Orientation="Horizontal">
-            
+
             <Button x:Name="btnGuardar" Text="Guardar" Clicked="btnGuardar_Clicked" />
             <Button x:Name="btnConsultar" Text="Consultar" Clicked="btnConsultar_Clicked" />
-           
+
             <Button x:Name="btnEliminar" Text="Eliminar" Clicked="btnEliminar_Clicked" />
             <Button Grid.Column="1" x:Name="btnTodos" Text="CONSULTARTODOS" Clicked="btnTodos_Clicked"/>
-          
+
         </StackLayout>
 
         <Label x:Name="lblMensaje" Text="" />
 
-        <ListView x:Name="medicamentosListView" Margin="0,20">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextCell Text="{Binding Nombre}" Detail="{Binding Tipo}" />
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
     </StackLayout>
-    
+
 </ContentPage>
